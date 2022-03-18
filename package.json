@@ -1,0 +1,42 @@
+{
+  "name": "fastify-prisma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node index.js",
+    "dev": "nodemon -w src src/index.ts",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:push": "prisma db push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Puppo/fastify-prisma.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Puppo/fastify-prisma/issues"
+  },
+  "homepage": "https://github.com/Puppo/fastify-prisma#readme",
+  "dependencies": {
+    "@prisma/client": "^3.11.0",
+    "@sinclair/typebox": "^0.23.4",
+    "awilix": "^7.0.0",
+    "fastify": "^3.27.4",
+    "fastify-awilix": "^1.2.0",
+    "fastify-cors": "^6.0.3",
+    "fastify-env": "^2.1.1",
+    "fastify-swagger": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "nodemon": "^2.0.15",
+    "prisma": "^3.11.0",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  }
+}

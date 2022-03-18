@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  dev_be:
+    build: ${PWD}/docker/dev
+    container_name: dev_be
+    hostname: dev_be
+    ports:
+      - 3000:3000
+      - 9320:9320
+    tty: true
+    volumes:
+      - ./:/app/
+    depends_on:
+      - postgres_db
+  postgres_db:
+    image: postgres:14.2-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: todo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST_AUTH: trust
+    ports:
+      - "5432:5432"
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  db:
+    driver: local
