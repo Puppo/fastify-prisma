@@ -2,17 +2,17 @@ import { CommentTable, PostTable, TagTable, UserTable } from "@prisma/client";
 import { Comment, Post } from "../../domain";
 
 export function mapComment(comment: CommentTable): Comment {
-  return {
+  return Object.freeze({
     id: comment.id,
     content: comment.content,
     createdAt: comment.createdAt,
-  };
+  });
 }
 
 export function mapPost(
   post: PostTable & { user: UserTable; tags: TagTable[] }
 ): Post {
-  return {
+  return Object.freeze({
     id: post.id,
     title: post.title,
     content: post.content,
@@ -24,5 +24,5 @@ export function mapPost(
       lastName: post.user.lastName,
       username: post.user.username,
     },
-  };
+  });
 }

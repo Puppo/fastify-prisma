@@ -12,3 +12,6 @@ dev:
 
 build:
 	docker exec -ti dev_be npm run build
+
+test:
+	docker exec -ti dev_be npm run test
